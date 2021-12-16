@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Routes, Navigate} from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Navigate replace to='/dogs'/>}/>
+        <Route path='/dogs/*' element={<App />}/>    
+      </Routes>      
+    </BrowserRouter>,
   document.getElementById('root')
 );
 
